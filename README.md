@@ -6,6 +6,9 @@ Certainly! Here's a template for a README.md file for your Flask project:
 
 The Handwritten Image to Text Extraction Flask application allows users to extract text from handwritten images, with a captivating Coffee Shop Experience. It utilizes the Tesseract OCR library for accurate text recognition and conversion. The extracted text can be downloaded as a text file.
 
+![Uploading Screenshot 2023-06-26 052102.png…]()
+
+
 ## Features
 
 - Upload an image containing handwritten text.
