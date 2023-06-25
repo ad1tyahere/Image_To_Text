@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handwritten Image to Text</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+        overflow: hidden;
+      }
+      #background-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: left;
+        padding-top: 100px;
+        z-index: 1;
+        position: relative;
+      }
+      h1 {
+        margin-bottom: 30px;
+        color: #c0c0f7;
+        font-size: 60px;
+        position: fixed;
+        top: 30px;
+        left: 40px;
+      }
+      .animated-barista {
+        width: 300px;
+        margin-bottom: 20px;
+        margin-top: 150px;
+        position: fixed;
+        left: 40px;
+      }
+      input[type='file'] {
+        display: none;
+      }
+      .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #343a40;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        width: 45%;
+        margin-top: 125px;
+        margin-bottom: 10px;
+      }
+      .custom-file-upload:hover {
+        background-color: #23272b;
+      }
+      .btn-extract {
+        font-size: 18px;
+        background-color: #0000cd;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        width: 45%;
+        margin-top: 125px;
+        margin-bottom: 10px;
+      }
+      .btn-extract:hover {
+        background-color: #1e90ff;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: #808080;
+        font-size: 16px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      id="background-image"
+      src="{{ url_for('static', filename='shop.png') }}"
+      alt="Background"
+    />
+    <div class="container">
+      <h1>TAKE YOUR TEXT GO</h1>
+      <img
+        class="animated-barista"
+        src="{{ url_for('static', filename='barista.gif') }}"
+        alt="Barista"
+      />
+      <form action="/extract_text" method="post" enctype="multipart/form-data">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-top: 150px;
+          "
+        >
+          <label for="image-upload" class="custom-file-upload">
+            Upload your order here
+          </label>
+          <input id="image-upload" type="file" name="image" accept="image/*" />
+          <input
+            type="submit"
+            class="btn btn-primary btn-extract"
+            value="Extract Text"
+          />
+        </div>
+      </form>
+      {% if uploaded %}
+      <div class="alert alert-success" style="margin-top: 20px">
+        File uploaded successfully!
+      </div>
+      {% endif %}
+    </div>
+    <footer>
+      Made by Aditya Arvind Mishra ❤️ 2023
+      <br />
+      <a href="https://github.com/ad1tyahere" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>

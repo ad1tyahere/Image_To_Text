@@ -1,0 +1,10 @@
+Name: Sample
+
+Unique Policy Number: 12345
+Amount: 100000
+
+Start Date: 1/10/2019
+
+End Date: 1/11/2019
+
+Geo-Coordinates: 13.89,83.49
